@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>SQL generator</title>
+  </head>
+
+    <body class="flex items-center justify-center h-screen bg-gray-100 p-20">    
+      <div class="w-screen mx-auto bg-white p-6 rounded-lg shadow-xl h-full flex flex-col">
+        <h1 class="text-2xl font-bold mb-4 text-center text-black shrink-0 mb-10">SQL generator</h1>
+        <textarea id="textarea1" placeholder="Enter text here..." class="w-full p-2 mb-4 border border-gray-300 rounded h-2/5 focus:outline-dashed focus:outline-2 focus:outline-offset-2 transition-all transition duration-200 ease-out"></textarea>
+        <button onclick="generate()" class="bg-blue-500 text-white py-2 px-4 rounded hover:bg-blue-600 w-fit rounded-lg self-end flex gap-x-2 items-center"><svg id="spinner" class="hidden animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+          <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+        </svg>Generate SQL</button>
+        <textarea id="textarea2" placeholder="Generated SQL will appear here..." class="w-full p-2 mt-4 border border-gray-300 rounded h-2/5 bg-gray-200"></textarea>
+      </div>  
+  
+    
+    <script src="./index.js"></script>
+  </body>
+</html>
