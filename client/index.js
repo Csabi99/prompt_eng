@@ -5,6 +5,7 @@ async function generate() {
     const payload = {text: textarea1.value}
     console.log(JSON.stringify(payload))
     console.log(payload)
+    spinner.classList.toggle("hidden")
     const response = await fetch(
         "http://localhost:3000/app",
         {
@@ -13,7 +14,6 @@ async function generate() {
           headers: {'Content-Type': 'application/json'}
         }
       );
-      spinner.classList.toggle("hidden")
       response.json().then(data=>{textarea2.innerText = data.text;
         spinner.classList.toggle("hidden")})
   }
