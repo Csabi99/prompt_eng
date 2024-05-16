@@ -16,13 +16,14 @@ const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 async function gen(message) {
   const model = genAI.getGenerativeModel({ model: "gemini-pro"});
 
-  const prompt = `Act as an SQL expert. Generate an SQL query for the following request. Your output should be only an SQL query as a plain text, without any formatting. So without new-line characters or quotes. However if the request is not normally interpretable as an sql query, return a message which indicates this. The problem:${message}`
+  const prompt = `Act as an SQL expert. Generate an SQL query for the following request. Your output should be only an SQL query as a plain text, without any formatting. So without new-line "(\\n)" characters or quotes or the sql keyword. Keep it clean. However if the request is not normally interpretable as an sql query, return a message which indicates this. The problem:${message}`
   console.log(prompt)
   const result = await model.generateContent(prompt);
   const response = await result.response;
   const text = response.text();
   console.log(text);
-  return text;
+  let newString = text.split('\n').join(' ');
+  return newString;
 }
 
 
